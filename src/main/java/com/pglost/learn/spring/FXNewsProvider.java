@@ -1,14 +1,23 @@
 package com.pglost.learn.spring;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 /**
  * Hello world!
  *
  */
+@Component
 public class FXNewsProvider
 {
+    @Autowired
     private IFXNewsListener newsListener;
+    @Autowired
     private IFXNewsPersister newsPersister;
+
+    public FXNewsProvider() {
+    }
 
     public FXNewsProvider(IFXNewsListener newsListener, IFXNewsPersister newsPersister) {
         this.newsListener = newsListener;

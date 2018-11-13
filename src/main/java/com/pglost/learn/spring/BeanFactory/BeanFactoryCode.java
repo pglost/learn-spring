@@ -18,9 +18,9 @@ public class BeanFactoryCode {
         newsProvider.getAndPersistNews();
     }
     public static BeanFactory bindViaCode(BeanDefinitionRegistry registry){
-        AbstractBeanDefinition newsProvider = new RootBeanDefinition(FXNewsProvider.class, AbstractBeanDefinition.AUTOWIRE_BY_TYPE, true);
-        AbstractBeanDefinition newsListener = new RootBeanDefinition(DowJonesNewsListener.class, AbstractBeanDefinition.AUTOWIRE_BY_TYPE, true);
-        AbstractBeanDefinition newsPersister = new RootBeanDefinition(DowJonesNewsPersister.class, AbstractBeanDefinition.AUTOWIRE_BY_TYPE, true);
+        AbstractBeanDefinition newsProvider = new RootBeanDefinition(FXNewsProvider.class, AbstractBeanDefinition.AUTOWIRE_NO, false);
+        AbstractBeanDefinition newsListener = new RootBeanDefinition(DowJonesNewsListener.class, AbstractBeanDefinition.AUTOWIRE_NO, true);
+        AbstractBeanDefinition newsPersister = new RootBeanDefinition(DowJonesNewsPersister.class, AbstractBeanDefinition.AUTOWIRE_NO, true);
         //将Bean定义注入到容器中
         registry.registerBeanDefinition("djNewsProvider", newsProvider);
         registry.registerBeanDefinition("djNewsListener", newsListener);
